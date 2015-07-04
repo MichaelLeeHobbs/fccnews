@@ -24,10 +24,10 @@ angular.module('myApp.news', ['ngRoute'])
         data.sort(function (a, b) {
             return b.timePosted - a.timePosted;
         });
-        $scope.newsData = data;
+        $scope.stories = data;
 
         // get newest story
-        $scope.newestNews = data[0];
+        $scope.newestStory = data[0];
 
         /* get trending stories */
         var trendingNews = [];
