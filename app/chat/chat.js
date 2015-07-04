@@ -10,5 +10,6 @@ angular.module('myApp.chat', ['ngRoute'])
 }])
 
 .controller('ChatCtrl', [function() {
-
+      $(".menu-item").removeClass("active");
+      $("#chat").addClass("active");
 }]);

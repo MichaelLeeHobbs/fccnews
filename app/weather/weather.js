@@ -10,5 +10,6 @@ angular.module('myApp.weather', ['ngRoute'])
 }])
 
 .controller('WeatherCtrl', [function() {
-
+      $(".menu-item").removeClass("active");
+      $("#weather").addClass("active");
 }]);

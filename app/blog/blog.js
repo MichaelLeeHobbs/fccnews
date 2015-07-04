@@ -10,5 +10,6 @@ angular.module('myApp.blog', ['ngRoute'])
 }])
 
 .controller('BlogCtrl', [function() {
-
+      $(".menu-item").removeClass("active");
+      $("#blog").addClass("active");
 }]);

@@ -10,5 +10,6 @@ angular.module('myApp.twitch', ['ngRoute'])
 }])
 
 .controller('TwitchCtrl', [function() {
-
+      $(".menu-item").removeClass("active");
+      $("#twitch").addClass("active");
 }]);

@@ -10,5 +10,7 @@ angular.module('myApp.news', ['ngRoute'])
     }])
 
     .controller('NewsCtrl', [function () {
+        $(".menu-item").removeClass("active");
+        $("#news").addClass("active");
 
     }]);

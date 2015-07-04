@@ -10,5 +10,6 @@ angular.module('myApp.twitter', ['ngRoute'])
 }])
 
 .controller('TwitterCtrl', [function() {
-
+      $(".menu-item").removeClass("active");
+      $("#twitter").addClass("active");
 }]);
