@@ -25,7 +25,7 @@ angular.module('myApp.weather', ['ngRoute'])
 
     .controller('WeatherCtrl', ['$scope', '$animate', '$timeout', 'weatherData', function ($scope, $animate, $timeout, weatherData) {
         $(".menu-item").removeClass("active");
-        $("#twitter").addClass("active");
+        $("#weather").addClass("active");
 
         $scope.weatherData = weatherData.data;
         $scope.day = 0;
