@@ -9,6 +9,7 @@ html, body, #body, #ngView {
 
 .viewContainer {
     height: 100%;
+    min-height: 800px;
     width: 100%;
     position: relative;
 }
