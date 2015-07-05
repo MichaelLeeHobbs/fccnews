@@ -1,0 +1,90 @@
+/** index.html **/
+#tw-container {
+    max-width: 100%;
+}
+#tw-viewContainer {
+    padding: 5px;
+    border: thin solid #e7e7e7;
+    border-top: none;
+    border-radius: 0 0 4px 4px;
+    background-color: #f8f8f8;
+}
+
+#tw-menuBar {
+    width: 100%;
+    background-color: #f8f8f8;
+    margin-bottom: 10px;
+    padding: 10px;
+    border: thin solid #e7e7e7;
+    border-radius: 0 0 5px 5px;
+}
+
+#tw-menuBar > div > div > a {
+    color: grey;
+    text-decoration: none;
+}
+
+.tw-menu-item {
+    background-size: 100%;
+    margin-left: 5%;
+    margin-right: 5%;
+    font-size: 12px;
+    text-align: center;
+}
+
+.tw-active {
+    border-radius: 20px;
+    background-color: #c0c0c0;
+}
+
+
+/** views **/
+
+.streamImg {
+    width: 48px;
+    height: 48px;
+    border-radius: 90px;
+}
+
+.streamRow {
+    display: block;
+    color: grey;
+    text-decoration: none;
+}
+
+.streamRow:hover {
+    color: grey;
+    text-decoration: none;
+}
+
+.streamText {
+    padding-left: 20px;
+}
+
+.streamName {
+    font-weight: bold;
+    color: #005700;
+}
+
+.streamStatus {
+    margin-top: -12px;
+    font-size: 12px;
+}
+
+.fa-signal {
+    color: green;
+}
+
+.fa-exclamation {
+    color: red;
+}
+
+.stream > label {
+    display: block;
+}
+
+.streamIcon {
+    margin-top: 13px;
+}
+
+
