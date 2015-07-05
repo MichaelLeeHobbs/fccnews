@@ -1,0 +1,26 @@
+<div class="stream">
+    <label title="{{data.title}}">
+        <a class='streamRow' href='{{data.link}}'>
+            <div class="row">
+                <div class="col-xs-2">
+                    <img class='streamImg' ng-src="{{data.img}}">
+                </div>
+                <div class="col-xs-8 streamText">
+                    <div class="row">
+                        <div class="col-xs-12">
+                            <h4 class="streamName"> {{data.name}}</h4>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-xs-12">
+                            <p class="streamStatus">{{data.titleShort}}</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-xs-2">
+                    <i class="streamIcon" ng-class="{'fa fa-signal': data.active, 'fa fa-exclamation': !data.active}"></i>
+                </div>
+            </div>
+        </a>
+    </label>
+</div>
