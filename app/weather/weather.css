@@ -1,13 +1,9 @@
-* {
+.weather-container > * {
     font-family: verdana, sans-serif;
     color: goldenrod;
 }
-html, body, #body, #ngView {
-    height: 100%;
-    padding: 0;
-}
 
-.viewContainer {
+.weather-container {
     height: 100%;
     min-height: 800px;
     width: 100%;
@@ -15,26 +11,26 @@ html, body, #body, #ngView {
 }
 
 /* -- rows -- */
-.viewContainer > .row {
+.weather-container > .row {
     max-width: 100%;
     margin: 0;
     padding-left: 15px;
     padding-right: 15px;
 }
 
-.top-row {
+.weather-top-row {
     padding-top: 15px;
     height: 40%;
 }
-.middle-row {
+.weather-middle-row {
     height: 50%;
 }
-.bottom-row {
+.weather-bottom-row {
     height: 10%;
 }
 
 /** -- columns -- **/
-.tile {
+.weather-tile {
     border-radius: 10px;
     width: auto;
     -webkit-box-shadow: 10px 10px 34px 0 rgba(0,0,0,0.75);
@@ -49,24 +45,18 @@ html, body, #body, #ngView {
 }
 
 
-.middle-row>.col-xs-2 {
+.weather-middle-row>.col-xs-2 {
     padding: 0;
 }
 
-h1, h2, h3 {
-    text-shadow: 2px 2px 2px rgba(0, 0, 0, 0.71);
-}
-h4 {
+.weather-container > h4 {
     text-shadow: 1.5px 1.5px 1.5px rgba(0, 0, 0, 0.90);
 }
 
-.no-pad {
+.weather-no-pad {
     padding: 0;
 }
 
-#temp {
-    color: black;
-}
 
 .dropdown-menu {
     width: 128px;
