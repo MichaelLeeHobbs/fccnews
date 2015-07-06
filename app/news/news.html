@@ -1,31 +1,43 @@
-<div class="container">
+<link rel="stylesheet" href="news/news.css">
+<div class="container news-container">
     <div class="row">
-        <div class="col-lg-8 headline">
-            <h1 class="text-center">Breaking news!</h1>
-            <a class="pull-left" href="{{newestStory.link}}"><img alt="  Image not found :(" ng-src="{{newestStory.author.picture}}"></a>
-            <h2 class="text-center">{{newestStory.headline}}</h2>
-            <p>{{newestStory.description}}</p>
+        <div class="col-lg-8 news-headline">
+            <div class="news-headline-tile">
+                <h1 class="text-center">Breaking news!</h1>
+                <a class="pull-left" href="{{newestStory.link}}">
+                    <img class='img-responsive' alt="  Image not found :(" ng-src="{{newestStory.author.picture}}">
+                </a>
+                <h2 class="text-center">{{newestStory.headline}}</h2>
+                <p>{{newestStory.description}}</p>
+            </div>
+
         </div>
-        <div class="col-lg-4">
-            <h2 class="text-center">Trending</h2>
-            <ul>
-                <div ng-repeat="trendingStory in trendingNews">
-                    <li><a href="{{trendingStory.link}}">{{trendingStory.headline}}</a></li>
-                </div>
-            </ul>
+        <div class="col-lg-4 news-trending">
+            <div class="news-trending-tile">
+                <h2 class="text-center">Trending</h2>
+                <ul>
+                    <div ng-repeat="trendingStory in trendingNews">
+                        <li><a href="{{trendingStory.link}}">{{trendingStory.headline}}</a></li>
+                    </div>
+                </ul>
+            </div>
         </div>
     </div>
 </div>
-<div class="container">
+
+<div class="container news-story-container">
     <div class="row">
         <div ng-repeat="story in stories | filter:searchText">
-            <div class="col-lg-4 story">
-                <img alt="  Image not found :(" class='img-responsive img-story center-block' ng-src="{{story.author.picture}}">
-                <h4 class="">{{story.headline}}</h4>
+            <div class="col-lg-4 news-story">
+                <div class="news-story-tile">
+                    <img alt="  Image not found :(" class='img-responsive center-block'
+                         ng-src="{{story.author.picture}}">
+                    <h4 class="">{{story.headline}}</h4>
 
-                <p>{{story.description}}</p>
+                    <p>{{story.description}}</p>
 
-                <p class=""><a class="btn btn-default" href="{{story.link}}">View details &raquo;</a></p>
+                    <p class=""><a class="btn btn-default" href="{{story.link}}">View details &raquo;</a></p>
+                </div>
             </div>
         </div>
     </div>
