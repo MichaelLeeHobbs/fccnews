@@ -27,9 +27,8 @@ angular.module('myApp.services', ['ngResource'])
         }
 
         var sdo = {
-            query: function (lat, lon, refresh) {
+            query: function (lat, lon) {
                 // validations
-                refresh = refresh || false;
                 // valid lat = -90...90
                 // valid lon = -180...180
                 lat = rangeLimit(lat, -90, 90);
