@@ -1,15 +1,3 @@
-/** index.html **/
-#tw-container {
-    max-width: 100%;
-}
-#tw-viewContainer {
-    padding: 5px;
-    border: thin solid #e7e7e7;
-    border-top: none;
-    border-radius: 0 0 4px 4px;
-    background-color: #f8f8f8;
-}
-
 #tw-menuBar {
     width: 100%;
     background-color: #f8f8f8;
@@ -41,8 +29,10 @@
 /** views **/
 
 .streamImg {
+    /*
     width: 48px;
     height: 48px;
+    */
     border-radius: 90px;
 }
 
@@ -87,4 +77,8 @@
     margin-top: 13px;
 }
 
+
+.tw-col {
+    padding: 0 5px 0 5px;
+}
 

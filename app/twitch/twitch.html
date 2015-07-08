@@ -1,3 +1,5 @@
+<link rel="stylesheet" href="twitch/twitch.css">
+<link rel="stylesheet" href="directives/stream/stream-directive.css">
 <div id="tw-container" class="container">
     <div id="tw-menuBar">
         <div class="row">
@@ -10,28 +12,10 @@
     </div>
 
     <div class="row">
-        <div class="col-xs-12">
-            <div ng-repeat="stream in streams | filter:searchText">
+        <div ng-repeat="stream in streams | filter:searchText">
+            <div class="col-sm-3 tw-col">
                 <stream-element data="stream"></stream-element>
             </div>
         </div>
     </div>
 </div>
-
-<script>
-    $(document).ready(function () {
-        // add/remove class based on media size
-        $(window).on('resize', function () {
-            var $container = $('#container');
-            if ($(window).width() < 800) {
-                console.log('small');
-                $container.addClass('container-fluid');
-                $container.removeClass('container');
-            } else {
-                console.log('big');
-                $container.addClass('container');
-                $container.removeClass('container-fluid');
-            }
-        });
-    });
-</script>
