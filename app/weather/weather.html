@@ -1,114 +1,88 @@
-<div class="viewContainer text-center">
-    <img class="bgImgOne bgImg" ng-src="{{bgOne}}">
-    <img class="bgImgTwo bgImg transparent" ng-src="{{bgTwo}}">
-
-    <div class="row top-row">
-        <div class="col-xs-2 text-left pull-left">
-            <div class="col-xs-12 tile largeMedia">
-                <div class="row">lat: {{weatherData.city.coord.lat | number}}</div>
-                <div class="row">lon: {{weatherData.city.coord.lon | number}}</div>
-            </div>
+<div id="weather-menu" class="navbar navbar-inverse navbar-default">
+    <div class="container">
+        <div class="navbar-header">
+            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                <span class="icon-bar"></span><span class="icon-bar"></span><span class="icon-bar"></span>
+            </button>
         </div>
-        <div class="col-xs-8">
-            <div class="row"><h1>{{weatherData.city.name}}, {{weatherData.city.country}}</h1></div>
-            <div class="row"><h2>{{weatherData.list[day].dt * 1000 | date}}</h2></div>
-            <div class="row smallMedia">
-                <h4>
-                    lat: {{weatherData.city.coord.lat | number}}
-                    lon: {{weatherData.city.coord.lon | number}}
-                </h4>
-            </div>
-            <div class="row smallMedia">
-                <h4>
-                    <span>{{toTitleCase(weatherData.list[day].weather[0].description)}}</span>
-                </h4>
-            </div>
-            <div class="row smallMedia">
-                <h4>
-                    <span>Low: </span>
-                    <span>{{tempMin(day, tempMode) | number: 1}} &deg;{{tempMode}} </span>
-                    <span>High: </span>
-                    <span>{{tempMax(day, tempMode) | number: 1}} &deg;{{tempMode}} </span>
-                </h4>
-            </div>
-
-            <div class="row smallMedia">
-                <h4>
-                    <span>Pressure: </span>
-                    <span>{{weatherData.list[day].pressure}}</span>
-                </h4>
-            </div>
-            <div class="row smallMedia">
-                <h4>
-                    <span>Wind: </span>
-                    <span>{{degToCompassDir(weatherData.list[day].deg)}}@{{mpsToKph(weatherData.list[day].speed) | number: 1}}kph</span>
-                </h4>
-            </div>
-
-        </div>
-        <div class="col-xs-2 text-left pull-right">
-            <div class="row largeMedia">
-                <div class="col-xs-12 tile pull-right">
-                    <div class="row">
-                        <span>{{toTitleCase(weatherData.list[day].weather[0].description)}}</span>
-                    </div>
-                    <div class="row">
-                        <div class="col-xs-12">
-                            <div class="row">
-                                <div class="btn-group" dropdown is-open="status.isopen">
-                                    <button type="button" class="btn btn-primary dropdown-toggle" dropdown-toggle
-                                            ng-disabled="disabled">
-                                        Temperature <span class="caret"></span>
-                                    </button>
-                                    <ul class="dropdown-menu" role="menu">
-                                        <li ng-click="tempMode = 'C'">Celsius</li>
-                                        <li ng-click="tempMode = 'K'">Kelvin</li>
-                                        <li ng-click="tempMode = 'F'">Fahrenheit</li>
-                                    </ul>
-                                </div>
-                            </div>
-
-                            <div class="row ">
-                                <div class="col-xs-11 col-xs-offset-1 no-pad">
-                                    <span>Low: </span>
-                                    <span>{{tempMin(day, tempMode) | number: 1}} &deg;{{tempMode}}</span>
-                                </div>
-                            </div>
-                            <div class="row ">
-                                <div class="col-xs-11 col-xs-offset-1 no-pad">
-                                    <span>High: </span>
-                                    <span>{{tempMax(day, tempMode) | number: 1}} &deg;{{tempMode}}</span>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="row">
-                        <span>Humidity: </span>
-                        <span>{{weatherData.list[day].humidity}}%</span>
-                    </div>
-                    <div class="row">
-                        <span>Pressure: </span>
-                        <span>{{weatherData.list[day].pressure}}</span>
-                    </div>
-                    <div class="row">
-                        <span>Wind: </span>
-                        <span>{{degToCompassDir(weatherData.list[day].deg)}}@{{mpsToKph(weatherData.list[day].speed) | number: 1}}kph</span>
-                    </div>
+        <div class="navbar-collapse collapse">
+            <ul class="nav navbar-nav">
+                <li class="dropdown">
+                    <a class="dropdown-toggle" data-toggle="dropdown">Temperature <b class="caret"></b></a>
+                    <ul class="dropdown-menu">
+                        <li>
+                            <a ng-click="tempMode = 'C'">Celsius</a>
+                        </li>
+                        <li>
+                            <a ng-click="tempMode = 'K'">Kelvin</a>
+                        </li>
+                        <li>
+                            <a ng-click="tempMode = 'F'">Fahrenheit</a>
+                        </li>
+                    </ul>
+                </li>
+            </ul>
+            <!--
+            <form class="navbar-form navbar-right">
+                <div class="form-group">
+                    <label for="lat">Latitude</label>
+                    <input id="lat" type="text" placeholder="{{weatherData.city.coord.lat | number}}" class="form-control">
                 </div>
-            </div>
+                <div class="form-group">
+                    <label for="lon">Latitude</label>
+                    <input id="lon" type="text" placeholder="{{weatherData.city.coord.lon | number}}" class="form-control">
+                </div>
+                <button type="submit" class="btn btn-success">Forcast</button>
+            </form>
+            -->
         </div>
+        <!--/.navbar-collapse -->
     </div>
-    <div class="row middle-row">
-        <div class="col-xs-2 pull-left tile"><i id="prev" ng-click="prev()" ng-dblclick="return"
-                                                class="fa fa-chevron-left fa-4x"></i></div>
-        <div class="col-xs-8"></div>
-        <div class="col-xs-2 pull-right tile"><i id="next" ng-click="next()" ng-dblclick="return"
-                                                 class="fa fa-chevron-right fa-4x"></i>
-        </div>
-    </div>
-    <div class="row bottom-row">
+</div>
+<!-- Main jumbotron for a primary marketing message or call to action -->
+<div id="current" class="jumbotron" style="background-image: url({{getBckGndImg(0)}})">
+    <div class="container">
         <div class="row">
+            <div class="col-lg-4"></div>
+            <div id="current-text" class="col-lg-4">
+                <h1>{{weatherData.city.name}}, {{weatherData.city.country}}</h1>
+
+                <h2>{{getDateString(0)}}</h2>
+
+                <p>{{toTitleCase(weatherData.list[day].weather[0].description)}} with wind
+                    {{degToCompassDir(weatherData.list[day].deg)}}@{{mpsToKph(weatherData.list[day].speed) | number:
+                    1}}kph</p>
+
+                <p>Low: {{tempMin(weatherData.list[0], tempMode) | number: 1}} &deg;{{tempMode}} High: {{tempMax(weatherData.list[0], tempMode) |
+                    number: 1}} &deg;{{tempMode}}</p>
+
+                <p>
+                    Humidity: {{weatherData.list[day].humidity}}% Pressure: {{weatherData.list[day].pressure}}
+                </p>
+            </div>
+            <div class="col-lg-4"></div>
+        </div>
+
+    </div>
+</div>
+<div class="container">
+    <!-- Example row of columns -->
+    <div class="row">
+        <div ng-repeat="day in weatherData.list">
+            <div class="col-lg-4 day">
+                <h2>{{getDayName(day)}}</h2>
+
+                <p>{{toTitleCase(day.weather[0].description)}} with wind
+                    {{degToCompassDir(day.deg)}}@{{mpsToKph(day.speed) | number:
+                    1}}kph</p>
+
+                <p>Low: {{tempMin(day, tempMode) | number: 1}} &deg;{{tempMode}} High: {{tempMax(day, tempMode) |
+                    number: 1}} &deg;{{tempMode}}</p>
+
+                <p>
+                    Humidity: {{day.humidity}}% Pressure: {{day.pressure}}
+                </p>
+            </div>
         </div>
     </div>
 </div>
-

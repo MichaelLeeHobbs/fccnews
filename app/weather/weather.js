@@ -28,15 +28,11 @@ angular.module('myApp.weather', ['ngRoute'])
         $("#weather").addClass("active");
 
         $scope.weatherData = weatherData.data;
+        console.log(weatherData.data);
         $scope.day = 0;
         $scope.tempMode = 'C';
 
-
-        // todo remove
-        console.log($scope.weatherData);
-
-
-        var getBG = function (day) {
+        $scope.getBckGndImg = function (day) {
             var id = $scope.weatherData.list[day].weather[0].id;
 
             // http://openweathermap.org/weather-conditions
@@ -85,49 +81,6 @@ angular.module('myApp.weather', ['ngRoute'])
             }
         };
 
-        var activeImg = '.bgImgOne';
-        var inactiveImg = '.bgImgTwo';
-        $scope.bgOne = getBG($scope.day);
-        $scope.bgTwo = getBG($scope.day);
-        $scope.btnDisabled = false;
-
-
-        var toggleImg = function () {
-            if ($scope.btnDisabled) return;
-
-            if (activeImg === '.bgImgOne') {
-                $scope.bgTwo = getBG($scope.day);
-            } else {
-                $scope.bgOne = getBG($scope.day);
-            }
-
-            if ($scope.bgOne !== $scope.bgTwo) {
-                $scope.btnDisabled = true;
-                $animate.addClass(angular.element(activeImg), 'transparent', {});
-                $animate.removeClass(angular.element(inactiveImg), 'transparent', {});
-
-                var tmp = activeImg;
-                activeImg = inactiveImg;
-                inactiveImg = tmp;
-
-                $timeout(function () {
-                    $scope.btnDisabled = false;
-                }, 1000);
-            }
-        };
-
-
-        $scope.next = function () {
-            if ($scope.btnDisabled) return;
-            $scope.day = (++$scope.day < $scope.weatherData.list.length) ? $scope.day : $scope.weatherData.list.length - 1;
-            toggleImg();
-        };
-        $scope.prev = function () {
-            if ($scope.btnDisabled) return;
-            $scope.day = (--$scope.day >= 0) ? $scope.day : 0;
-            toggleImg();
-        };
-
         var kelvinToCelsius = function (k) {
             return k - 273.15;
         };
@@ -164,27 +117,39 @@ angular.module('myApp.weather', ['ngRoute'])
         $scope.tempMin = function (day, mode) {
             switch (mode) {
                 case 'C':
-                    return kelvinToCelsius($scope.weatherData.list[day].temp.min);
+                    return kelvinToCelsius(day.temp.min);
                 case 'K':
-                    return $scope.weatherData.list[day].temp.min;
+                    return day.temp.min;
                 case 'F':
-                    return kelvinToFahrenheit($scope.weatherData.list[day].temp.min);
+                    return kelvinToFahrenheit(day.temp.min);
             }
         };
         $scope.tempMax = function (day, mode) {
             switch (mode) {
                 case 'C':
-                    return kelvinToCelsius($scope.weatherData.list[day].temp.max);
+                    return kelvinToCelsius(day.temp.max);
                 case 'K':
-                    return $scope.weatherData.list[day].temp.max;
+                    return day.temp.max;
                 case 'F':
-                    return kelvinToFahrenheit($scope.weatherData.list[day].temp.max);
+                    return kelvinToFahrenheit(day.temp.max);
             }
         };
         $scope.toTitleCase = function (str) {
             return str.replace(/\w\S*/g, function (txt) {
                 return txt.charAt(0).toUpperCase() + txt.substr(1).toLowerCase();
             });
+        };
+
+        $scope.getDateString = function(day) {
+            var date = new Date($scope.weatherData.list[day].dt * 1000);
+            var options = { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric' };
+            return date.toLocaleString('en-US', options);
+        };
+
+        $scope.getDayName = function(day) {
+            var date = new Date(day.dt * 1000);
+            var options = { weekday: 'long'};
+            return date.toLocaleString('en-US', options);
         };
 
     }]);
