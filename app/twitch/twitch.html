@@ -4,16 +4,16 @@
     <div id="tw-menuBar">
         <div class="row">
             <!-- todo replace with angular button-->
-            <div class="col-xs-2 tw-menu-item tw-active" id="tw-menuView1"><a href="#/view1">All</a></div>
-            <div class="col-xs-2 tw-menu-item" id="tw-menuView2"><a href="#/view2">Online</a></div>
-            <div class="col-xs-2 tw-menu-item" id="tw-menuView3"><a href="#/view3">Offline</a></div>
+            <div class="col-xs-2 tw-menu-item tw-active" id="tw-menuView1"><a ng-click="status = ''">All</a></div>
+            <div class="col-xs-2 tw-menu-item" id="tw-menuView2"><a ng-click="status = 'true'">Online</a></div>
+            <div class="col-xs-2 tw-menu-item" id="tw-menuView3"><a ng-click="status = 'false'">Offline</a></div>
             <!-- todo -->
         </div>
     </div>
 
     <div class="row">
-        <div ng-repeat="stream in streams | filter:searchText">
-            <div class="col-sm-3 tw-col">
+        <div ng-repeat="stream in streams | filter:searchText | filter:{ active: status}">
+            <div class="col-xs-2 tw-col">
                 <stream-element data="stream"></stream-element>
             </div>
         </div>
