@@ -7,9 +7,11 @@
     border-radius: 0 0 5px 5px;
 }
 
-#tw-menuBar > div > div > a {
+#tw-menuBar > div > a {
     color: grey;
     text-decoration: none;
+    cursor: pointer;
+    width: 100%;
 }
 
 .tw-menu-item {
