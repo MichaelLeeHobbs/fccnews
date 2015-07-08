@@ -2,7 +2,7 @@
     <label title="{{data.title}}">
         <a href='{{data.link}}'>
             <div class="stream-tile">
-                <img class="img-responsive streamImg" ng-src="{{data.img}}">
+                <img class="img-responsive streamImg" ng-src="{{data.img}}" ng-class="{'stream-active': data.active, 'stream-inactive': !data.active}">
                 <h4>{{data.name}}</h4>
 
                 <p>{{data.titleShort}}</p>
