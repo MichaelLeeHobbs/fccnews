@@ -21,6 +21,11 @@ angular.module('myApp.news', ['ngRoute'])
 
         var data = newsData.data;
 
+        // build story discussion link
+        data.forEach(function (item) {
+           item.discLink = "http://www.freecodecamp.com/news/" + item.storyLink.replace(/\s/g, '-');
+        });
+
         // sort the stories by date
         data.sort(function (a, b) {
             return b.timePosted - a.timePosted;
