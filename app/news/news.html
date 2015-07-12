@@ -4,8 +4,8 @@
         <div class="col-lg-8 news-headline">
             <div class="news-headline-tile">
                 <h1 class="text-center">Breaking news!</h1>
-                <a class="pull-left" href="{{newestStory.link}}">
-                    <img class='img-responsive' alt="  Image not found :(" ng-src="{{newestStory.author.picture}}">
+                <a class="" href="{{newestStory.link}}">
+                    <img class='img-responsive pull-left' alt="  Image not found :(" ng-src="{{newestStory.author.picture}}">
                 </a>
                 <h2 class="text-center">{{newestStory.headline}}</h2>
                 <p>{{newestStory.description}}</p>
@@ -35,8 +35,10 @@
                     <h4 class="">{{story.headline}}</h4>
 
                     <p>{{story.description}}</p>
+                    <p>{{story.rank}} camper(s) like this story</p>
 
-                    <p class=""><a class="btn btn-default" href="{{story.link}}">View details &raquo;</a></p>
+                    <p><a class="btn btn-default btn-disc" href="{{story.discLink}}">Discuss</a></p>
+                    <p><a class="btn btn-default btn-view" href="{{story.link}}">View</a></p>
                 </div>
             </div>
         </div>
