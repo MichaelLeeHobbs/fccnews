@@ -17,5 +17,6 @@ angular.module('myApp.twitch', ['ngRoute'])
     .controller('TwitchCtrl', ['$scope', 'streams', function ($scope, streams) {
         $(".menu-item").removeClass("active");
         $("#twitch").addClass("active");
+        $("#pb-container").show();
         $scope.streams = formatStreams(streams);
     }]);

@@ -17,6 +17,7 @@ angular.module('myApp.news', ['ngRoute'])
     .controller('NewsCtrl', ['$scope', 'newsData', function ($scope, newsData) {
         $(".menu-item").removeClass("active");
         $("#news").addClass("active");
+        $("#pb-container").show();
 
         var data = newsData.data;
 
