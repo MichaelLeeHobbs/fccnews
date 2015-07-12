@@ -3,24 +3,28 @@
 <div id="tw-container" class="container">
     <div id="tw-menuBar">
         <div class="row">
-            <a ng-click="status = ''"><div class="col-xs-2 tw-menu-item tw-active" id="tw-menuView1">All</div></a>
-            <a ng-click="status = 'true'"><div class="col-xs-2 tw-menu-item" id="tw-menuView2">Online</div></a>
-            <a ng-click="status = 'false'"><div class="col-xs-2 tw-menu-item" id="tw-menuView3">Offline</div></a>
+            <a ng-click="status = ''">
+                <div class="col-xs-2 tw-menu-item tw-active" id="tw-menuView1">All</div>
+            </a>
+            <a ng-click="status = 'true'">
+                <div class="col-xs-2 tw-menu-item" id="tw-menuView2">Online</div>
+            </a>
+            <a ng-click="status = 'false'">
+                <div class="col-xs-2 tw-menu-item" id="tw-menuView3">Offline</div>
+            </a>
         </div>
     </div>
 
     <div class="row">
         <div ng-repeat="stream in streams | filter:searchText | filter:{ active: status}">
-            <div class="col-xs-2 tw-col">
-                <stream-element data="stream"></stream-element>
-            </div>
+            <stream-element data="stream"></stream-element>
         </div>
     </div>
 </div>
 
 <script>
     $(document).ready(function () {
-        $(".tw-menu-item").click(function(){
+        $(".tw-menu-item").click(function () {
             $(".tw-menu-item").removeClass("tw-active");
             $(this).addClass("tw-active");
         });
