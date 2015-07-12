@@ -1,5 +1,7 @@
 body {
     background-color: #457E86;
+    padding-top: 50px;
+    padding-bottom: 20px;
 }
 
 h1, h2, h3 {
@@ -7,4 +9,55 @@ h1, h2, h3 {
 }
 h4 {
     text-shadow: 1px 1px 1px rgba(0, 0, 0, 0.90);
+}
+
+#chat-container {
+    padding: 0;
+    margin-bottom: -20px;
+}
+
+#chat-container > div {
+    padding-bottom: 0;
+    margin: 0;
+}
+
+#chat-container > div > iframe {
+    padding: 0;
+    margin-right: -15px;
+    margin-left: 0;
+    border: none;
+}
+
+#blog-container {
+    padding: 0;
+    margin-bottom: -20px;
+}
+
+#blog-container > div {
+    padding-bottom: 0;
+    margin: 0;
+}
+
+#blog-container > div > iframe {
+    padding: 0;
+    margin-right: -15px;
+    margin-left: 0;
+    border: none;
+}
+
+#twitter-container {
+    padding: 0;
+    margin-bottom: -20px;
+}
+
+#twitter-container > div {
+    padding-bottom: 0;
+    margin: 0;
+}
+
+#twitter-container > div > iframe {
+    padding: 0;
+    margin-right: -15px;
+    margin-left: 0;
+    border: none;
 }
