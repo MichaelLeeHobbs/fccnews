@@ -1,13 +1,19 @@
-<div class="stream">
-    <label title="{{data.title}}">
-        <a href='{{data.link}}'>
-            <div class="stream-tile">
-                <img class="img-responsive streamImg" ng-src="{{data.img}}" ng-class="{'stream-active': data.active, 'stream-inactive': !data.active}">
-                <h4>{{data.name}}</h4>
-
-                <p>{{data.titleShort}}</p>
-                <i ng-class="{'fa fa-signal fa-4x': data.active, 'fa fa-exclamation fa-4x': !data.active}"></i>
-            </div>
-        </a>
-    </label>
+<div>
+    <a class="stream">
+        <div style="background: url({{data.img}}); background-size: cover;"
+             title="{{data.title}}"
+             ng-class="{'stream-active': data.active, 'stream-inactive': !data.active}"
+             class="col-sm-2 col-xs-4">
+            <h3>{{data.name}}</h3>
+        </div>
+    </a>
 </div>
+
+
+
+
+
+
+
+
+
